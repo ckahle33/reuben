@@ -1,0 +1,42 @@
+.container
+  .row
+    .js-edit-title{'data-url': article_path(@article), 'data-title': @article.title}
+      %h3
+        {{ title }}
+      %input{'v-model': "title", value: @article.title}
+      %button.btn.btn-primary{'v-on:click': "postTitle"}
+        Save
+      %div.alert-success{'v-if': "showMessage"}
+        {{ message }}
+
+  .row
+    %h3
+      Sections
+
+  - @article.sections.order(:order).each do |s|
+    .row
+      = form_for [@article, s] do |p|
+        .form-group.row
+          .col-12
+            = p.label :order
+            = p.select :order, options_for_select(order_options, s.order), class: "form-control"
+        .form-group.row
+          .col-12
+            = p.text_area :content, class: "form-control"
+        .form-group.row
+          .col-12
+            = p.submit "Save", class: "btn btn-primary"
+
+  .row
+    %h3
+      Page Preview
+
+  .row.page-preview.rounded
+    - @article.sections.order(:order).each do |s|
+      .col-sm-12.section
+        = s.content
+
+  .row
+    -# This will be done in JS eventually
+    = link_to "New Article Section (TM)", new_article_section_path(@article.id), class: "btn btn-primary"
+

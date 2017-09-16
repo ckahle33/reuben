@@ -1,0 +1,11 @@
+.row
+  .web-title
+    %h3
+      = @article.title
+
+.row
+  - @article.sections.order(:order).each do |s|
+    .col-sm-12.web-section
+      %h3
+        = s.content
+

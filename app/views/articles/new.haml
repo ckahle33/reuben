@@ -1,0 +1,15 @@
+.row
+  .col-8
+    = form_for @article do |p|
+      .form-group.row
+        .col-2
+          = p.label :title
+        .col-10
+          = p.text_field :title, class: "form-control"
+      .form-group.row
+        .col-2
+          = p.label :body
+        .col-10
+          = p.text_field :body, class: "form-control"
+      .form-group.row
+        = p.submit "Save", class: "btn btn-primary"

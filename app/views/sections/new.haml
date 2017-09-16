@@ -1,0 +1,17 @@
+.row
+  .col-8
+    = form_for [@article, @section] do |p|
+      .form-group.row
+        .col-10
+          = p.label :order
+          = p.text_field :order, class: "form-control"
+      .form-group.row
+        .col-10
+          = p.label :width
+          = p.text_field :width, class: "form-control"
+      .form-group.row
+        .col-10
+          = p.label :content
+          = p.text_field :content, class: "form-control"
+      .form-group.row
+        = p.submit "Save", class: "btn btn-primary"

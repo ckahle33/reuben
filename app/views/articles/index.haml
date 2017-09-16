@@ -1,0 +1,17 @@
+%h1
+  Articles
+
+- @articles.in_groups_of(3) do |g|
+  .card-group
+    - g.compact.each do |a|
+      .card.card-outline-success.article-card
+        .card-block
+          .card-title
+            %h4
+              = link_to a.title, article_path(a.id)
+          = link_to "edit", edit_article_path(a)
+          %p.card-text
+            = a.body
+
+.new-article
+  = link_to "New Article", new_article_path, class: "btn btn-primary"
