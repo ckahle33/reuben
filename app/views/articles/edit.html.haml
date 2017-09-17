@@ -16,10 +16,15 @@
   - @article.sections.order(:order).each do |s|
     .row
       = form_for [@article, s] do |p|
-        .form-group.row
-          .col-12
-            = p.label :order
-            = p.select :order, options_for_select(order_options, s.order), class: "form-control"
+        // needs to be drag and drop here
+        -# .form-group.row
+        -#   .col-12
+        -#     = p.label :order
+        -#     = p.select :order, options_for_select(order_options, s.order), class: "form-control"
+        -# .form-group.row
+        -#   .col-10
+        -#     = p.label :width
+        -#     = p.select :width, options_for_select(width_options, s.width), class: "form-control", include_blank: true
         .form-group.row
           .col-12
             = p.text_area :content, class: "form-control"

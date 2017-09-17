@@ -33,7 +33,6 @@ class ArticlesController < ApplicationController
       end
     end
 
-
   end
 
   def create
@@ -48,6 +47,7 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit!
   end
+
 
   def order_options
     @article = Article.find(params[:id])
