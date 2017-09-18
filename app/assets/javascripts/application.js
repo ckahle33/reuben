@@ -13,6 +13,8 @@
 //= require jquery
 //= require tether.min
 //= require vue.min
+//= require sortable.min
+//= require vuedraggable.min
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

@@ -17,14 +17,6 @@
     .row
       = form_for [@article, s] do |p|
         // needs to be drag and drop here
-        -# .form-group.row
-        -#   .col-12
-        -#     = p.label :order
-        -#     = p.select :order, options_for_select(order_options, s.order), class: "form-control"
-        -# .form-group.row
-        -#   .col-10
-        -#     = p.label :width
-        -#     = p.select :width, options_for_select(width_options, s.width), class: "form-control", include_blank: true
         .form-group.row
           .col-12
             = p.text_area :content, class: "form-control"
@@ -37,9 +29,10 @@
       Page Preview
 
   .row.page-preview.rounded
-    - @article.sections.order(:order).each do |s|
-      .col-sm-12.section
-        = s.content
+    .js-draggable{'data-url': article_sections_path(@article)}
+      %draggable{'v-model': "sections"}
+        .col-sm-12.section{'v-for': 's in sections'}
+          {{ s.content }}
 
   .row
     -# This will be done in JS eventually

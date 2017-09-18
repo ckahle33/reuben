@@ -9,7 +9,6 @@ if ($('.js-edit-title').length) {
     },
     mounted: function() {
       // Load Data into Vue Instance
-      console.log("is this being fired?");
       this.url = this.$el.attributes['data-url'].value;
       this.title = this.$el.attributes['data-title'].value;
     },

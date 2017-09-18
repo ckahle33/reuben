@@ -1,6 +1,14 @@
 class SectionsController < ApplicationController
   helper_method :width_options
 
+  def index
+    @sections = Section.where(article_id: params[:article_id])
+
+    respond_to do |format|
+      format.json { render json: { sections: @sections } }
+    end
+  end
+
   def new
     @section = Section.new
     @article = Article.find(params[:article_id])
@@ -33,13 +41,6 @@ class SectionsController < ApplicationController
     else
       redirect_to edit_article_path(params[:article_id])
     end
-  end
-
-  def width_options
-    {
-      'half': 6,
-      'full': 12
-    }
   end
 
   def section_params

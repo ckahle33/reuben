@@ -3,8 +3,9 @@
     .col-8
       = form_for [@article, @section] do |p|
         .form-group.row
-          .col-10
+          .col-12
+            // eventually be CKeditor
             = p.label :content
-            = p.text_field :content, class: "form-control"
+            = p.text_area :content, class: "form-control"
         .form-group.row
           = p.submit "Save", class: "btn btn-primary"
