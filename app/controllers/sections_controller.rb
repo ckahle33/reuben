@@ -43,6 +43,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def order
+    render json: {params: params}
+    sections = params['sections']
+    Section.update(sections.keys, sections.values)
+  end
+
   def section_params
     params.require(:section).permit!
   end

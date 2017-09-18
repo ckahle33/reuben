@@ -30,7 +30,7 @@
 
   .row.page-preview.rounded
     .js-draggable{'data-url': article_sections_path(@article)}
-      %draggable{'v-model': "sections"}
+      %draggable{'v-model': "sections", '@end': 'onDragEnd'}
         .col-sm-12.section{'v-for': 's in sections'}
           {{ s.content }}
 

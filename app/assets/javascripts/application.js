@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require tether.min
+//= require lodash.min
 //= require vue.min
 //= require sortable.min
 //= require vuedraggable.min
