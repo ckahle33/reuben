@@ -5,11 +5,6 @@ var drag = new Vue({
     sections: [],
     url: ''
   },
-  computed: {
-    orderedSections: function () {
-      return _.orderBy(this.sections, 'order')
-    }
-  },
   mounted: function() {
     this.url = this.$el.attributes['data-url'].value
     this.fetchSections();
@@ -20,7 +15,7 @@ var drag = new Vue({
         method: "GET",
         url: this.url + ".json"
       }).done(function(data) {
-        this.sections = data.sections;
+        this.sections = _.orderBy(data.sections, ['order'], ['asc'])
       }.bind(this))
     },
     onDragEnd: function() {
